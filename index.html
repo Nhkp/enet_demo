@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENET Bordeaux - Services de Ménage Premium Défiscalisables</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        enet: {
+                            primary: '#4F46E5',
+                            secondary: '#10B981',
+                            dark: '#1E293B',
+                            light: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero-pattern {
+            background-image: radial-gradient(circle at 25% 50%, rgba(79, 70, 229, 0.15) 0%, rgba(79, 70, 229, 0) 50%);
+        }
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4F46E5;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .floating-btn {
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+        }
+        .floating-btn:hover {
+            transform: translateY(-2px);
+        }
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.9) 100%);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-enet-dark bg-enet-light">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-lg bg-enet-primary flex items-center justify-center mr-3">
+                    <i class="fas fa-sparkle text-white"></i>
+                </div>
+                <span class="text-xl font-bold text-enet-primary">ENET</span>
+                <span class="ml-1 text-gray-600">Bordeaux</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#accueil" class="nav-link font-medium text-gray-700 hover:text-enet-primary">Accueil</a>
+                <a href="#services" class="nav-link font-medium text-gray-700 hover:text-enet-primary">Services</a>
+                <a href="#avantages" class="nav-link font-medium text-gray-700 hover:text-enet-primary">Défiscalisation</a>
+                <a href="#tarifs" class="nav-link font-medium text-gray-700 hover:text-enet-primary">Tarifs</a>
+                <a href="#contact" class="nav-link font-medium text-gray-700 hover:text-enet-primary">Contact</a>
+            </nav>
+            
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-enet-primary focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#accueil" class="py-2 border-b border-gray-100 font-medium">Accueil</a>
+                <a href="#services" class="py-2 border-b border-gray-100 font-medium">Services</a>
+                <a href="#avantages" class="py-2 border-b border-gray-100 font-medium">Défiscalisation</a>
+                <a href="#tarifs" class="py-2 border-b border-gray-100 font-medium">Tarifs</a>
+                <a href="#contact" class="py-2 font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-pattern bg-enet-primary text-white py-20 md:py-28">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <div class="inline-block bg-white/20 rounded-full px-4 py-1 mb-4">
+                        <span class="text-sm font-medium">50% de crédit d'impôt</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Ménage premium <br>à Bordeaux</h1>
+                    <p class="text-xl mb-8 opacity-90 max-w-lg">Professionnels et particuliers, bénéficiez de services de nettoyage haut de gamme et d'avantages fiscaux avantageux avec ENET.</p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="floating-btn bg-white text-enet-primary hover:bg-gray-100 font-bold py-3 px-6 rounded-lg text-center transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-calendar-alt mr-2"></i> Prendre rendez-vous
+                        </a>
+                        <a href="#avantages" class="bg-transparent border-2 border-white hover:bg-white hover:text-enet-primary font-bold py-3 px-6 rounded-lg text-center transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-percent mr-2"></i> Défiscalisation
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Femme de ménage professionnelle" class="rounded-2xl shadow-2xl max-w-full h-auto z-10 relative border-4 border-white">
+                        <div class="absolute -bottom-4 -right-4 bg-enet-secondary text-white p-4 rounded-xl shadow-lg z-20">
+                            <div class="text-2xl font-bold">50%</div>
+                            <div class="text-xs">Crédit d'impôt</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <div class="bg-white py-8 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-enet-primary/10 flex items-center justify-center mr-3">
+                        <i class="fas fa-shield-alt text-enet-primary"></i>
+                    </div>
+                    <span class="font-semibold">Services assurés</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-enet-primary/10 flex items-center justify-center mr-3">
+                        <i class="fas fa-user-tie text-enet-primary"></i>
+                    </div>
+                    <span class="font-semibold">Professionnels qualifiés</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-enet-primary/10 flex items-center justify-center mr-3">
+                        <i class="fas fa-euro-sign text-enet-primary"></i>
+                    </div>
+                    <span class="font-semibold">50% crédit d'impôt</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-enet-primary/10 flex items-center justify-center mr-3">
+                        <i class="fas fa-leaf text-enet-primary"></i>
+                    </div>
+                    <span class="font-semibold">Éco-responsable</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-enet-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Nos Services Premium</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Des solutions sur mesure pour particuliers et professionnels, avec des avantages fiscaux optimisés.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ménage domicile" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <h3 class="text-xl font-bold text-white">Ménage Résidentiel</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="inline-block bg-enet-primary/10 text-enet-primary text-xs px-2 py-1 rounded-full mb-2">Particuliers</span>
+                                <p class="text-gray-600">Nettoyage complet de votre domicile avec produits écologiques.</p>
+                            </div>
+                            <div class="text-enet-primary font-bold text-xl">15€<span class="text-sm font-normal text-gray-500">/h*</span></div>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-enet-secondary mr-2"></i>
+                                <span>Nettoyage des sols et surfaces</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-enet-secondary mr-2"></i>
+                                <span>Dépoussiérage complet</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-enet-secondary mr-2"></i>
+                                <span>Salle de bain et cuisine</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="w-full inline-flex justify-center items-center bg-enet-primary hover:bg-enet-primary/90 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+                            Réserver <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Nettoyage professionnel" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <h3 class="text-xl font-bold text-white">Nettoyage Pro</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="inline-block bg-enet-primary/10 text-enet-primary text-xs px-2 py-1 rounded-full mb-2">Entreprises</span>
+                                <p class="text-gray-600">Services de nettoyage pour bureaux, commerces et ERP.</p>
+                            </div>
+                            <div class="text-enet-primary font-bold text-xl">20€<span class="text-sm font-normal text-gray-500">/h*</span></div>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-enet-secondary mr-2"></i>
+                                <span>Nettoyage quotidien ou ponctuel</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-enet-secondary mr-2"></i>
+                                <span>Vitres et surfaces vitrées</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-enet-secondary mr-2"></i>
+                                <span>Désinfection des espaces</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="w-full inline-flex justify-center items-center bg-enet-primary hover:bg-enet-primary/90 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+                            Réserver <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white">
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Grand ménage" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <h3 class="text-xl font-bold text-white">Grand Ménage</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="inline-block bg-enet-primary/10 text-enet-primary text-xs px-2 py-1 rounded-full mb-2">Tous clients</span>
+                                <p class="text-gray-600">Nettoyage en profondeur avant emménagement ou après travaux.</p>
+                            </div>
+                            <div class="text-enet-primary font-bold text-xl">25€<span class="text-sm font-normal text-gray-500">/h*</span></div>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-enet-secondary mr-2"></i>
+                                <span>Murs et plafonds</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-enet-secondary mr-2"></i>
+                                <span>Dégraissage complet</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-enet-secondary mr-2"></i>
+                                <span>Recoins difficiles</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="w-full inline-flex justify-center items-center bg-enet-primary hover:bg-enet-primary/90 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+                            Réserver <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-500 text-sm">*Tarifs avant réduction d'impôt de 50% pour les particuliers</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tax Benefits Section -->
+    <section id="avantages" class="py-16 bg-enet-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl font-bold mb-6">Défiscalisez vos services de ménage</h2>
+                    <p class="text-xl mb-8 opacity-90">Avec ENET, bénéficiez d'un crédit d'impôt de 50% sur les sommes engagées pour vos services de nettoyage.</p>
+                    
+                    <div class="bg-white/10 rounded-xl p-6 mb-8 backdrop-blur-sm">
+                        <h3 class="font-bold text-xl mb-4">Comment ça marche ?</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="bg-white text-enet-primary rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span>Jusqu'à 15 000€ de dépenses annuelles éligibles</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-white text-enet-primary rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span>50% du montant TTC déductible de vos impôts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-white text-enet-primary rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span>Aucune condition de revenus</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-white text-enet-primary rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span>Pour propriétaires, locataires ou occupants à titre gratuit</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p class="mb-6 opacity-90">Nous fournissons tous les documents nécessaires pour votre déclaration fiscale.</p>
+                    
+                    <a href="#contact" class="inline-flex items-center bg-white text-enet-primary hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition duration-300">
+                        <i class="fas fa-file-invoice-dollar mr-2"></i> Demander une facture
+                    </a>
+                </div>
+                
+                <div class="lg:w-1/2 bg-white/10 rounded-xl p-8 backdrop-blur-sm">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-2">Simulateur de crédit d'impôt</h3>
+                        <p class="opacity-90">Calculez vos économies potentielles</p>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <label for="hours" class="block mb-2 font-medium">Heures par mois</label>
+                        <input type="range" id="hours" min="1" max="40" value="10" class="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between mt-2">
+                            <span>1h</span>
+                            <span id="hours-value" class="font-bold">10h</span>
+                            <span>40h</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <label for="rate" class="block mb-2 font-medium">Tarif horaire</label>
+                        <select id="rate" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-white">
+                            <option value="15">Ménage résidentiel (15€/h)</option>
+                            <option value="20">Nettoyage pro (20€/h)</option>
+                            <option value="25">Grand ménage (25€/h)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="bg-white/20 rounded-lg p-6 mb-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <span>Coût mensuel</span>
+                            <span id="monthly-cost" class="font-bold text-xl">150€</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>Crédit d'impôt (50%)</span>
+                            <span id="tax-credit" class="font-bold text-xl text-enet-secondary">75€</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-lg opacity-90">Coût réel après crédit d'impôt</p>
+                        <p id="real-cost" class="text-4xl font-bold">75€<span class="text-xl">/mois</span></p>
+                        <p class="text-sm opacity-80 mt-2">Économisez <span id="savings" class="font-bold">900€</span> par an</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Benefits Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl font-bold mb-6">Solutions pour les Professionnels</h2>
+                    <p class="text-xl mb-8 text-gray-600">Optimisez vos espaces de travail avec nos services de nettoyage professionnel et bénéficiez d'avantages fiscaux.</p>
+                    
+                    <div class="bg-enet-light rounded-xl p-6 mb-8">
+                        <h3 class="font-bold text-xl mb-4 text-enet-primary">Avantages fiscaux</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="bg-enet-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span>100% des sommes déductibles de votre résultat imposable</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-enet-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span>TVA récupérable à 100% pour les assujettis</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-enet-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span>Optimisation de la productivité de vos équipes</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p class="mb-6 text-gray-600">Nous proposons des contrats flexibles adaptés aux besoins spécifiques de votre entreprise.</p>
+                    
+                    <a href="#contact" class="inline-flex items-center bg-enet-primary hover:bg-enet-primary/90 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        <i class="fas fa-handshake mr-2"></i> Devis professionnel
+                    </a>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Nettoyage professionnel" class="rounded-2xl shadow-xl w-full">
+                        <div class="absolute -bottom-4 -right-4 bg-enet-secondary text-white p-6 rounded-xl shadow-lg">
+                            <div class="text-2xl font-bold">-50%</div>
+                            <div class="text-sm">de charges</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-enet-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Nos Clients Témoignent</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Ce que disent nos clients satisfaits à Bordeaux et ses alentours.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card rounded-2xl p-8 shadow-md border border-white/30">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"ENET a révolutionné mon approche du ménage. Le crédit d'impôt rend le service très accessible et la qualité est exceptionnelle."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Marie D." class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold">Marie D.</h4>
+                            <p class="text-gray-500 text-sm">Particulière - Bordeaux Centre</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card rounded-2xl p-8 shadow-md border border-white/30">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"En tant que cabinet médical, nos exigences sont élevées. ENET a su répondre parfaitement à nos besoins avec un professionnalisme remarquable."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Martin L." class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold">Dr. Martin L.</h4>
+                            <p class="text-gray-500 text-sm">Cabinet médical - Talence</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card rounded-2xl p-8 shadow-md border border-white/30">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"La défiscalisation était un argument clé. ENET fournit des factures parfaitement conformes et un service irréprochable."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sophie T." class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold">Sophie T.</h4>
+                            <p class="text-gray-500 text-sm">Particulière - Mérignac</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="tarifs" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Nos Forfaits Défiscalisés</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Des solutions adaptées à chaque besoin, avec une réduction d'impôt de 50% pour les particuliers.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Plan 1 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:border-enet-primary transition duration-300">
+                    <div class="bg-enet-primary text-white py-6 px-8 text-center">
+                        <h3 class="text-xl font-bold">Essentiel</h3>
+                        <p class="opacity-90">Entretien régulier</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-enet-primary">15€</span>
+                            <span class="text-gray-500">/heure</span>
+                            <p class="text-sm text-gray-500 mt-1">soit 7,50€ après crédit d'impôt</p>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>1 à 2h/semaine</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Nettoyage des surfaces</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Dépoussiérage</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Produits écologiques</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block text-center bg-enet-primary hover:bg-enet-primary/90 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            Choisir ce forfait
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Plan 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-enet-primary transform scale-105 z-10">
+                    <div class="bg-enet-primary text-white py-6 px-8 text-center relative">
+                        <div class="absolute top-0 right-4 bg-enet-secondary text-white text-xs font-bold px-3 py-1 rounded-b-lg">
+                            Populaire
+                        </div>
+                        <h3 class="text-xl font-bold">Complet</h3>
+                        <p class="opacity-90">Solution tout inclus</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-enet-primary">18€</span>
+                            <span class="text-gray-500">/heure</span>
+                            <p class="text-sm text-gray-500 mt-1">soit 9€ après crédit d'impôt</p>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>2 à 4h/semaine</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Nettoyage complet</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Salle de bain & cuisine</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Produits premium</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Matériel fourni</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block text-center bg-enet-primary hover:bg-enet-primary/90 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            Choisir ce forfait
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Plan 3 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:border-enet-primary transition duration-300">
+                    <div class="bg-enet-primary text-white py-6 px-8 text-center">
+                        <h3 class="text-xl font-bold">Intensif</h3>
+                        <p class="opacity-90">Nettoyage en profondeur</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-enet-primary">25€</span>
+                            <span class="text-gray-500">/heure</span>
+                            <p class="text-sm text-gray-500 mt-1">soit 12,50€ après crédit d'impôt</p>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Ponctuel ou saisonnier</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Nettoyage complet</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Recoins difficiles</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Produits professionnels</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-enet-secondary mr-2"></i>
+                                <span>Matériel haut de gamme</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block text-center bg-enet-primary hover:bg-enet-primary/90 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            Choisir ce forfait
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-600">Des solutions personnalisées pour les professionnels. <a href="#contact" class="text-enet-primary font-semibold hover:underline">Contactez-nous</a> pour un devis sur mesure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-enet-light">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Questions Fréquentes</h2>
+                <p class="text-xl text-gray-600">Trouvez les réponses à vos questions sur nos services et la défiscalisation.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- Question 1 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-semibold text-lg hover:bg-gray-50 transition duration-200">
+                        <span>Comment bénéficier du crédit d'impôt de 50% ?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 border-t border-gray-100">
+                        <p class="text-gray-600">Le crédit d'impôt de 50% s'applique automatiquement lorsque vous déclarez les sommes engagées pour nos services dans votre déclaration de revenus. ENET vous fournit une facture détaillée avec toutes les mentions légales nécessaires. Il suffit de reporter le montant TTC dans la case 7DB de votre déclaration.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-semibold text-lg hover:bg-gray-50 transition duration-200">
+                        <span>Quelle est la différence entre réduction et crédit d'impôt ?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 border-t border-gray-100">
+                        <p class="text-gray-600">La réduction d'impôt diminue le montant de votre impôt à payer. Si vous ne payez pas d'impôt, vous ne bénéficiez pas de la réduction. Le crédit d'impôt, quant à lui, vous est versé même si vous ne payez pas d'impôt. Pour nos services de ménage, il s'agit d'un crédit d'impôt, donc vous bénéficiez du remboursement dans tous les cas.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-semibold text-lg hover:bg-gray-50 transition duration-200">
+                        <span>Quels produits utilisez-vous pour le nettoyage ?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 border-t border-gray-100">
+                        <p class="text-gray-600">ENET utilise exclusivement des produits écologiques certifiés, respectueux de l'environnement et de la santé. Nos équipes sont formées à leur utilisation optimale pour un nettoyage efficace tout en préservant votre intérieur. Si vous avez des préférences particulières ou des allergies, nous pouvons adapter nos produits à vos besoins spécifiques.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-semibold text-lg hover:bg-gray-50 transition duration-200">
+                        <span>Puis-je avoir la même intervenante à chaque fois ?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 border-t border-gray-100">
+                        <p class="text-gray-600">Absolument. Chez ENET, nous privilégions la continuité du service. Nous faisons tout notre possible pour que vous ayez toujours la même intervenante, selon vos disponibilités et les siennes. Cela permet de créer une relation de confiance et une meilleure connaissance de vos habitudes et préférences en matière de nettoyage.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-semibold text-lg hover:bg-gray-50 transition duration-200">
+                        <span>Comment se déroule la première intervention ?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 border-t border-gray-100">
+                        <p class="text-gray-600">Lors de la première intervention, notre intervenante prendra le temps de faire un tour complet de votre domicile ou local professionnel avec vous pour comprendre vos attentes spécifiques, vos priorités et éventuellement vos instructions particulières. Cette visite d'évaluation est incluse dans le temps de la première prestation et nous permet d'établir un plan de nettoyage personnalisé.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl font-bold mb-6">Contactez ENET</h2>
+                    <p class="text-xl mb-6 text-gray-600">Demandez un devis gratuit ou posez-nous vos questions sur nos services et les avantages fiscaux.</p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-enet-primary/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-enet-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Adresse</h4>
+                                <p class="text-gray-600">12 Rue Sainte-Catherine, 33000 Bordeaux</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-enet-primary/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone-alt text-enet-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Téléphone</h4>
+                                <p class="text-gray-600">05 56 12 34 56</p>
+                                <p class="text-sm text-gray-500">Du lundi au samedi de 8h à 19h</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-enet-primary/10 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-enet-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Email</h4>
+                                <p class="text-gray-600">contact@enet-bordeaux.fr</p>
+                                <p class="text-sm text-gray-500">Réponse sous 24h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-enet-light p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-4">Horaires d'ouverture</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between py-2 border-b border-gray-200">
+                                <span class="font-medium">Lundi - Vendredi</span>
+                                <span>8h - 19h</span>
+                            </li>
+                            <li class="flex justify-between py-2 border-b border-gray-200">
+                                <span class="font-medium">Samedi</span>
+                                <span>9h - 18h</span>
+                            </li>
+                            <li class="flex justify-between py-2">
+                                <span class="font-medium">Dimanche</span>
+                                <span>Urgences uniquement</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 bg-enet-light rounded-xl shadow-md p-8">
+                    <h3 class="text-2xl font-bold mb-6">Demande de devis</h3>
+                    <form id="contact-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="firstname" class="block text-gray-700 font-medium mb-2">Prénom *</label>
+                                <input type="text" id="firstname" name="firstname" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-enet-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="lastname" class="block text-gray-700 font-medium mb-2">Nom *</label>
+                                <input type="text" id="lastname" name="lastname" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-enet-primary focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-enet-primary focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-enet-primary focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Vous êtes *</label>
+                            <div class="flex flex-wrap gap-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="client_type" value="particulier" checked class="text-enet-primary focus:ring-enet-primary">
+                                    <span class="ml-2">Particulier</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="client_type" value="professionnel" class="text-enet-primary focus:ring-enet-primary">
+                                    <span class="ml-2">Professionnel</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="service" class="block text-gray-700 font-medium mb-2">Service intéressé *</label>
+                            <select id="service" name="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-enet-primary focus:border-transparent">
+                                <option value="">Sélectionnez un service</option>
+                                <option value="menage_domicile">Ménage à domicile</option>
+                                <option value="nettoyage_pro">Nettoyage professionnel</option>
+                                <option value="grand_menage">Grand ménage</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-enet-primary focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" required class="rounded text-enet-primary focus:ring-enet-primary">
+                                <span class="ml-2 text-gray-700">J'accepte la <a href="#" class="text-enet-primary hover:underline">politique de confidentialité</a> *</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-enet-primary hover:bg-enet-primary/90 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            Envoyer la demande
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full bg-gray-200 relative">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.769855233577!2d-0.5783889241741155!3d44.84731197107234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527e8f751ca81%3A0x796386037b397a89!2s12%20Rue%20Sainte-Catherine%2C%2033000%20Bordeaux!5e0!3m2!1sfr!2sfr!4v1689682834772!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="absolute bottom-4 right-4 bg-white p-3 rounded-lg shadow-md">
+            <a href="https://goo.gl/maps/9zqYJ7XmX6J2" target="_blank" class="text-enet-primary font-medium flex items-center">
+                <i class="fas fa-map-marker-alt mr-2"></i> Itinéraire
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-enet-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-enet-primary flex items-center justify-center mr-3">
+                            <i class="fas fa-sparkle text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white">ENET</span>
+                        <span class="ml-1 text-gray-400">Bordeaux</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Services de ménage premium pour particuliers et entreprises à Bordeaux, avec avantages fiscaux optimisés.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-enet-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-enet-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-enet-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Ménage résidentiel</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Nettoyage professionnel</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Grand ménage</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Nettoyage après travaux</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Services sur mesure</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">Informations</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Avantages fiscaux</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tarifs défiscalisés</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Recrutement</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">Légal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Mentions légales</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">CGV</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Confidentialité</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cookies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Accessibilité</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 ENET Bordeaux. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-lock text-enet-primary mr-2"></i>
+                        <span class="text-sm">Paiement sécurisé</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-enet-primary mr-2"></i>
+                        <span class="text-sm">Certifié</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-enet-primary text-white p-4 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-enet-primary/90">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle answer visibility
+                answer.classList.toggle('hidden');
+                
+                // Rotate icon
+                icon.classList.toggle('rotate-180');
+                
+                // Close other open answers
+                document.querySelectorAll('.faq-question').forEach(otherButton => {
+                    if (otherButton !== button) {
+                        otherButton.nextElementSibling.classList.add('hidden');
+                        otherButton.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Tax credit calculator
+        const hoursSlider = document.getElementById('hours');
+        const hoursValue = document.getElementById('hours-value');
+        const rateSelect = document.getElementById('rate');
+        const monthlyCost = document.getElementById('monthly-cost');
+        const taxCredit = document.getElementById('tax-credit');
+        const realCost = document.getElementById('real-cost');
+        const savings = document.getElementById('savings');
+
+        function updateCalculator() {
+            const hours = parseInt(hoursSlider.value);
+            const rate = parseInt(rateSelect.value);
+            
+            const cost = hours * rate;
+            const credit = cost * 0.5;
+            const annualSavings = credit * 12;
+            
+            hoursValue.textContent = `${hours}h`;
+            monthlyCost.textContent = `${cost}€`;
+            taxCredit.textContent = `${credit}€`;
+            realCost.innerHTML = `${credit}€<span class="text-xl">/mois</span>`;
+            savings.textContent = `${annualSavings}€`;
+        }
+
+        hoursSlider.addEventListener('input', updateCalculator);
+        rateSelect.addEventListener('change', updateCalculator);
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to your server
+            // For this example, we'll just show an alert
+            alert('Merci pour votre demande ! Nous vous contacterons rapidement.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
